@@ -7,20 +7,20 @@ import androidx.room.*
 interface UserDAO {
 
     @Insert
-    fun insert(user: User)
+    suspend fun insert(user: User)
 
     @Update
-    fun update(user: User)
+    suspend fun update(user: User)
 
     @Delete
-    fun delete(user: User)
+    suspend fun delete(user: User)
 
     @Query("delete from user_favorite")
-    fun deleteAllUsers()
+    suspend fun deleteAllUsers()
 
     @Query("select * from user_favorite")
     fun getAllUsers(): LiveData<List<User>>
 
     @Query("SELECT * FROM user_favorite WHERE username LIKE :username")
-    fun findUser(username: String): User
+    suspend fun findUser(username: String): User
 }
