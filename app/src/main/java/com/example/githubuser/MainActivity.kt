@@ -5,8 +5,11 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
@@ -45,22 +48,25 @@ class MainActivity : AppCompatActivity() {
                 showLoading(false)
             }
         })
-        mainViewModel.getAllusers().observe(this@MainActivity, { allUsers ->
-            if (allUsers != null) {
-                adapter.setData(allUsers as ArrayList<User>)
-            }
-        })
 
         adapter.setOnItemClickCallback(object : UserAdapter.OnItemClickCallback {
 
             override fun onItemClicked(data: User) {
                 val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                mainViewModel.insert(data)
                 intent.putExtra(DetailActivity.EXTRA_USER, data)
                 startActivity(intent)
             }
 
         })
+
+        binding.btnSearch.setOnClickListener {
+            if (!TextUtils.isEmpty(binding.etSearch.text)){
+                showLoading(true)
+                mainViewModel.searchUser(binding.etSearch.text.toString())
+            } else {
+                Toast.makeText(this@MainActivity, "Input text to search", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun showLoading(state: Boolean) {
@@ -93,6 +99,27 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+
         return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.favorite ->
+                startActivity(Intent(this@MainActivity, FavoriteActivity::class.java))
+
+            R.id.setting -> {
+
+            }
+
+            R.id.search -> {
+            }
+
+            else ->
+                super.onOptionsItemSelected(item)
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 }

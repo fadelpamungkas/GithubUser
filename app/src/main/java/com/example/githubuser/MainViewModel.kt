@@ -25,9 +25,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun insert(user: User) = viewModelScope.launch { repository.insert(user) }
 
-    fun update(user: User) = viewModelScope.launch { repository.update(user) }
-
-    fun delete(user: User) = viewModelScope.launch { repository.delete(user) }
+    fun delete(user: User) = viewModelScope.launch { repository.delete(user.username) }
 
     fun findUser(user: User) = viewModelScope.launch { repository.findUser(user.username) }
 

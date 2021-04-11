@@ -10,20 +10,12 @@ class ApplicationRepository(private val dao: UserDAO) {
         dao.insert(user)
     }
 
-    suspend fun update(user: User) {
-        dao.update(user)
+    suspend fun findUser(username: String) {
+        dao.findUser(username)
     }
 
-    suspend fun findUser(user: String) {
-        dao.findUser(user)
-    }
-
-    suspend fun delete(user: User) {
-        dao.delete(user)
-    }
-
-    suspend fun deleteAll() {
-        dao.deleteAllUsers()
+    suspend fun delete(username: String) {
+        dao.delete(username)
     }
 
 }
