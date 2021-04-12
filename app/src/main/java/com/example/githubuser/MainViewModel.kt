@@ -9,6 +9,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val users = MutableLiveData<ArrayList<User>>()
     private val userFollowing = MutableLiveData<ArrayList<User>>()
@@ -16,6 +17,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val userDetail = MutableLiveData<User>()
     private val databaseUser: LiveData<List<User>>
     private val repository: ApplicationRepository
+    private var findUserDB: LiveData<User>? = null
 
     init {
         val dao: UserDAO = AppDatabase.getDatabase(application.applicationContext).userDao()
@@ -27,7 +29,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun delete(user: User) = viewModelScope.launch { repository.delete(user.username) }
 
-    fun findUser(user: User) = viewModelScope.launch { repository.findUser(user.username) }
+    fun findUser(username: String) : LiveData<User>? {
+        findUserDB = repository.findUser(username)
+        return findUserDB
+    }
 
     fun getAllusers() : LiveData<List<User>> = databaseUser
 

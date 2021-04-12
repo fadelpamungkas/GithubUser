@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="Reminder"
+        android:iconSpaceReserved="false">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="@string/reminder"
+            android:title="Daily Reminder 09.00 AM"
+            android:icon="@drawable/ic_alarm_24"/>
+
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Language">
+
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubUser"
         android:usesCleartextTraffic="true">
-
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashTheme">
@@ -22,28 +21,33 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MainActivity" />
-
         <activity
             android:name=".FavoriteActivity"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-
         <activity
             android:name=".DetailActivity"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-
         </activity>
+        <activity android:name=".SettingActivity"
+            android:parentActivityName=".MainActivity">
 
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
     </application>
 
 </manifest>

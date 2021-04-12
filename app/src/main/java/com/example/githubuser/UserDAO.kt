@@ -16,5 +16,5 @@ interface UserDAO {
     fun getAllUsers(): LiveData<List<User>>
 
     @Query("select * from user_favorite where username = :username")
-    suspend fun findUser(username: String): User
+    fun findUser(username: String) : LiveData<User>
 }

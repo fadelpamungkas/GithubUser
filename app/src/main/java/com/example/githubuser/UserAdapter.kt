@@ -39,7 +39,6 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.CardViewViewHolder>() {
                     .apply(RequestOptions().override(350, 350))
                     .into(imageMain)
 
-                nameMain.text = user.name
                 usernameMain.text = user.username
 
                 itemView.setOnClickListener {

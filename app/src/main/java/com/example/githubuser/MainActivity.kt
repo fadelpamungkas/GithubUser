@@ -81,25 +81,6 @@ class MainActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)
 
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = menu.findItem(R.id.search).actionView as SearchView
-
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.queryHint = resources.getString(R.string.search_hint)
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                showLoading(true)
-                mainViewModel.searchUser(query!!)
-
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return false
-            }
-
-        })
-
 
         return super.onCreateOptionsMenu(menu)
     }
@@ -109,12 +90,8 @@ class MainActivity : AppCompatActivity() {
             R.id.favorite ->
                 startActivity(Intent(this@MainActivity, FavoriteActivity::class.java))
 
-            R.id.setting -> {
-
-            }
-
-            R.id.search -> {
-            }
+            R.id.setting ->
+                startActivity(Intent(this@MainActivity, SettingActivity::class.java))
 
             else ->
                 super.onOptionsItemSelected(item)

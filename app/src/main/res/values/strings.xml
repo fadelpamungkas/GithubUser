@@ -13,6 +13,7 @@
     <string name="settings">Settings</string>
     <string name="favorite">favorite</string>
     <string name="search_user">Search User</string>
+    <string name="reminder">reminder</string>
 
 </resources>
 

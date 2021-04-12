@@ -34,11 +34,11 @@
             android:padding="8dp"
             android:background="?attr/colorPrimary">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/image_detail"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:scaleType="fitXY"
+                android:scaleType="centerCrop"
                 android:layout_marginTop="20dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"

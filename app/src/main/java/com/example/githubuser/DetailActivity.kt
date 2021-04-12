@@ -41,15 +41,24 @@ class DetailActivity : AppCompatActivity() {
             favStatus = true
         } else {
             user = intent.getParcelableExtra<User>(EXTRA_USER) as User
-            showLoading(true)
-            mainViewModel.getUserDetail(user)
-            mainViewModel.loadUserDetail().observe(this@DetailActivity, { userDetail ->
-                if (userDetail != null) {
-                    user = userDetail
-                    bindUser(user)
-                    showLoading(false)
+            mainViewModel.findUser(user.username)!!.observe(this, { findUserDB ->
+                if (findUserDB != null && findUserDB.username == user.username) {
+                    bindUser(findUserDB)
+                    favStatus = true
+                } else {
+                    showLoading(true)
+                    mainViewModel.getUserDetail(user)
+                    mainViewModel.loadUserDetail().observe(this@DetailActivity, { userDetail ->
+                        if (userDetail != null) {
+                            user = userDetail
+                            bindUser(user)
+                            showLoading(false)
+                        }
+                    })
                 }
             })
+
+
         }
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this@DetailActivity, user)

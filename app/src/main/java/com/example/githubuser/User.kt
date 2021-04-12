@@ -20,10 +20,10 @@ data class User (
     @PrimaryKey
     @NonNull
     val username: String,
-    @SerializedName("type")
-    val name: String,
     @SerializedName("avatar_url")
     val avatar: String,
+    @SerializedName("name")
+    var name: String? = null,
     @SerializedName("location")
     var location: String? = null,
     @SerializedName("public_repos")
