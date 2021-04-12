@@ -2,6 +2,7 @@ package com.example.githubuser
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.SwitchPreference
 
@@ -21,8 +22,22 @@ class AppPreferenceFragment : PreferenceFragmentCompat(),
         reminder = resources.getString(R.string.reminder)
         reminderPreference = findPreference<SwitchPreference>(reminder) as SwitchPreference
 
+        val alarmReceiver = AlarmReceiver()
+
         val shared = preferenceManager.sharedPreferences
         reminderPreference.isChecked = shared.getBoolean(reminder, true)
+
+        reminderPreference.setOnPreferenceChangeListener { preference, newValue ->
+            val switched = (preference as SwitchPreference).isChecked
+            if (!switched) {
+                alarmReceiver.setRepeatingAlarm(requireContext(), AlarmReceiver.TYPE_REPEATING,
+                    "05:03", "Daily Reminder")
+            } else {
+                alarmReceiver.cancelAlarm(requireContext(), AlarmReceiver.TYPE_REPEATING)
+            }
+            true
+        }
+
     }
 
     override fun onResume() {
