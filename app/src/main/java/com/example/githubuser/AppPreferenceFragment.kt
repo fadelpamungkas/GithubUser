@@ -31,7 +31,7 @@ class AppPreferenceFragment : PreferenceFragmentCompat(),
             val switched = (preference as SwitchPreference).isChecked
             if (!switched) {
                 alarmReceiver.setRepeatingAlarm(requireContext(), AlarmReceiver.TYPE_REPEATING,
-                    "05:03", "Daily Reminder")
+                    "05:26", "Daily Reminder")
             } else {
                 alarmReceiver.cancelAlarm(requireContext(), AlarmReceiver.TYPE_REPEATING)
             }

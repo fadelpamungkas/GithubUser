@@ -43,9 +43,12 @@ class AlarmReceiver : BroadcastReceiver() {
         val CHANNEL_ID = "Channel_1"
         val CHANNEL_NAME = "AlarmManager channel"
 
+        val intent = Intent(context, MainActivity::class.java)
+        val pendingIntent = PendingIntent.getActivity(context, ID_REPEATING, intent, 0)
         val notificationManagerCompat = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         val alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+            .setContentIntent(pendingIntent)
             .setSmallIcon(R.drawable.ic_alarm_24)
             .setContentTitle(title)
             .setContentText(message)
