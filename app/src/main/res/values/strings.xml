@@ -14,6 +14,15 @@
     <string name="favorite">favorite</string>
     <string name="search_user">Search User</string>
     <string name="reminder">reminder</string>
+    <string name="Language">Language</string>
+    <string name="Daily_Reminder_09_AM">Daily Reminder 09.00 AM</string>
+    <string name="Dailyreminder">Daily Reminder</string>
+    <string name="alarm_setup">Repeating alarm set up</string>
+    <string name="alarm_canceled">Repeating alarm canceled</string>
+    <string name="text_to_search">Input text to search</string>
+    <string name="change_language">Change Language</string>
+    <string name="added_to_favorite">Added to Favorite</string>
+    <string name="removed_from_favorite">Removed from Favorite</string>
 
 </resources>
 

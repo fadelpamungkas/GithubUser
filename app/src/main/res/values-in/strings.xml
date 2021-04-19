@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GithubUser</string>
+    <string name="following">Mengikuti</string>
+    <string name="followers">Pengikut</string>
+    <string name="company">Perusahaan</string>
+    <string name="location">Lokasi</string>
+    <string name="repository">Repositori</string>
+    <string name="search">Cari</string>
+    <string name="search_hint">Cari Pengguna</string>
+    <string name="content_tab_text">Ini Tab ke %1$d</string>
+    <string name="tab_text_1">Mengikuti</string>
+    <string name="tab_text_2">Pengikut</string>
+    <string name="settings">Pengaturan</string>
+    <string name="favorite">Favorit</string>
+    <string name="search_user">Cari Pengguna</string>
+    <string name="reminder">Pengingat</string>
+    <string name="Language">Language</string>
+    <string name="Daily_Reminder_09_AM">Pengingat setiap 09.00 pagi</string>
+    <string name="Dailyreminder">Pengingat Harian</string>
+    <string name="alarm_setup">Alarm berhasil setup</string>
+    <string name="alarm_canceled">Alarm dibatalkan</string>
+    <string name="text_to_search">Masukkan teks untuk mencari</string>
+    <string name="change_language">Ubah Bahasa</string>
+    <string name="added_to_favorite">Ditambahkan ke Favorite</string>
+    <string name="removed_from_favorite">Dihapus dari Favorite</string>
+</resources>
