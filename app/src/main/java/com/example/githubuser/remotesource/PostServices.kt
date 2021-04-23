@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface PostServices {
 
     companion object {
-        const val TOKEN = "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"
+        const val TOKEN = "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"
     }
 
     @GET("/search/users")

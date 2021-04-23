@@ -29,7 +29,7 @@ class AppPreferenceFragment : PreferenceFragmentCompat(),
         val alarmReceiver = AlarmReceiver()
 
         val shared = preferenceManager.sharedPreferences
-        reminderPreference.isChecked = shared.getBoolean(reminder, true)
+        reminderPreference.isChecked = shared.getBoolean(reminder, false)
 
         reminderPreference.setOnPreferenceChangeListener { preference, newValue ->
             val switched = (preference as SwitchPreference).isChecked

@@ -4,7 +4,7 @@
     <PreferenceCategory android:title="@string/reminder"
         android:iconSpaceReserved="false">
         <SwitchPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="@string/reminder"
             android:title="@string/Daily_Reminder_09_AM"
             android:icon="@drawable/ic_alarm_24"/>

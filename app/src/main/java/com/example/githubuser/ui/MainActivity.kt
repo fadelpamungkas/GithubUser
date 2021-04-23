@@ -83,7 +83,6 @@ class MainActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.main_menu, menu)
 
-
         return super.onCreateOptionsMenu(menu)
     }
 
